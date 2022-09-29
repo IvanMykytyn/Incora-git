@@ -1,0 +1,15 @@
+@import './utils/variables';
+
+.darkBtn {
+  color: $darkPrimaryColor;
+  background: $black;
+
+  &:hover {
+    color: $black;
+    background: $darkPrimaryColor;
+  }
+}
+.activeDarkBtn {
+  color: $black;
+  background: $darkPrimaryColor;
+}

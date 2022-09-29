@@ -1,0 +1,46 @@
+// import fonts
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+// colors
+$white: #fff;
+$black: #222;
+
+$primaryColor: #3b82f6;
+
+$darkPrimaryColor: #da9c2a;
+
+// rest of the vars
+$backgroundColor: $white;
+$textColor: $black;
+$letterSpacing: 1px;
+
+// fonts
+$mainFont: 'Open Sans', sans-serif;
+$smallText: 0.875rem;
+$extraSmallText: 0.7em;
+
+// border
+$borderRadius: 0.25rem;
+$inputRadius: 1.5rem;
+$paginationButtonBorder: 1px solid #d6d5d5;
+
+// animations
+$transition: 0.3s ease-in-out all;
+
+// shadows
+$shadow-1: 0 1px 3px 0 #0000001a, 0 1px 2px 0 #0000000f;
+$shadow-2: 0 4px 6px -1px #0000001a, 0 2px 4px -1px #0000000f;
+$shadow-3: 0 10px 15px -3px #0000001a, 0 4px 6px -2px #0000000d;
+$shadow-4: 0 20px 25px -5px #0000001a, 0 10px 10px -5px #0000000a;
+
+@mixin centerDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin alignVertically {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}

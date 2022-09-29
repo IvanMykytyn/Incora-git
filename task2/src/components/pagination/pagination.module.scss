@@ -1,0 +1,62 @@
+@import '../../utils/variables';
+
+.pagination {
+  @include centerDiv;
+  margin-top: 1.25rem;
+  display: flex;
+
+  .stringBtn {
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: $letterSpacing;
+  }
+
+  .previousBtn {
+    color: #7c7c7c;
+  }
+}
+
+.btn {
+  @include centerDiv;
+  font-family: $mainFont;
+
+  border: $paginationButtonBorder;
+  border-right: none;
+
+  min-width: 35px;
+  height: 40px;
+
+  padding: 0 10px;
+
+  font-weight: 400;
+  font-size: 1.25rem;
+
+  color: $primaryColor;
+  background: $white;
+
+  transition: $transition;
+  text-transform: capitalize;
+  cursor: pointer;
+  &:hover {
+    background: $primaryColor;
+    color: $white;
+  }
+
+  &:first-of-type {
+    border-radius: $borderRadius 0 0 $borderRadius;
+  }
+
+  &:last-of-type {
+    border-right: $paginationButtonBorder;
+    border-radius: 0 $borderRadius $borderRadius 0;
+  }
+}
+
+.activeBtn {
+  background: $primaryColor;
+  color: $white;
+}
+
+.disableHover {
+  pointer-events: none;
+}
