@@ -1,4 +1,4 @@
-import {User,Task, Project, App} from './classes.js'
+import {User,Task, Project, App} from './classes'
 
 interface IApp {
     name: string
@@ -30,4 +30,4 @@ interface IApp {
     getAllTasksByDeveloper(id: string): Task[]
 }
 
-export {IApp, ITask, IUser, IProject}
+export type {IApp, ITask, IUser, IProject}

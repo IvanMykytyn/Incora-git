@@ -31,16 +31,9 @@
   font-weight: 400;
   font-size: 1.25rem;
 
-  color: $primaryColor;
-  background: $white;
-
   transition: $transition;
   text-transform: capitalize;
   cursor: pointer;
-  &:hover {
-    background: $primaryColor;
-    color: $white;
-  }
 
   &:first-of-type {
     border-radius: $borderRadius 0 0 $borderRadius;
@@ -52,11 +45,24 @@
   }
 }
 
-.activeBtn {
-  background: $primaryColor;
-  color: $white;
-}
+// .activeBtn {
+//   background: $primaryColor;
+//   color: $white;
+// }
 
 .disableHover {
   pointer-events: none;
+}
+.btnDefault {
+  color: $primaryColor;
+  background: $white;
+  &:hover {
+    background: $primaryColor;
+    color: $white;
+  }
+}
+
+.btnActiveDefault {
+  background: $primaryColor;
+  color: $white;
 }

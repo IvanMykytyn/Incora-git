@@ -1,5 +1,5 @@
-import { IApp, ITask, IUser, IProject } from './interfaces.js'
-import { generateId } from './utils.js'
+import type { IApp, ITask, IUser, IProject } from './interfaces'
+import { generateId } from './utils'
 
 class App implements IApp {
   private _name: string = ''

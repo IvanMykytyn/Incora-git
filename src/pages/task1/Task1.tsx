@@ -1,4 +1,5 @@
-import { User, Task, Project, App } from './classes.js'
+import React from 'react'
+import { User, Task, Project, App } from './classes'
 
 const userIvan = new User('Ivan')
 const userRoman = new User('Roman')
@@ -28,8 +29,8 @@ project1.deleteTask(task2.id)
 console.log('tasks after deleting:')
 console.log(project1)
 
-console.log("Total Time project1: " + project1.getTotalTime())
-console.log("Total Time project2: " + project2.getTotalTime())
+console.log('Total Time project1: ' + project1.getTotalTime())
+console.log('Total Time project2: ' + project2.getTotalTime())
 
 console.log("All userIvan's tasks")
 project1
@@ -37,3 +38,18 @@ project1
   .forEach((task) => console.log(task.getInfo()))
 
 console.log(application)
+
+const Task1 = () => {
+  return (
+    <div>
+      <h1>Task1</h1>
+      <ul>
+        {project1
+          .getAllTasksByDeveloper(userIvan.id)
+          .map((task) => <li key={task.id}>{task.getInfo()}</li>)}
+      </ul>
+    </div>
+  )
+}
+
+export default Task1

@@ -1,17 +1,17 @@
-import {Pagination} from './components' 
-
-import styles from './app.module.scss'
-// import styles from './components/pagination/pagination.module.scss'
+import React from 'react'
+import styles from './task2.module.scss'
 import cn from 'classnames'
 
+import {Pagination} from '../../components/' 
+
 const customStyles = {
-  btn: cn(styles.darkBtn),
-  activeBtn: cn(styles.activeDarkBtn)
+    btn: cn(styles.darkBtn),
+    activeBtn: cn(styles.activeDarkBtn)
 }
 
-function App() {
+const Task2 = () => {
   return (
-    <div className="App">
+    <div>
       <Pagination totalItems={1} perPage={10} />
       <Pagination totalItems={24} activePage={2} perPage={10} />
       <Pagination totalItems={44} perPage={10} />
@@ -27,9 +27,9 @@ function App() {
       <Pagination totalItems={104} perPage={10} withActions={true} activePage={3}/>
       <Pagination totalItems={120} perPage={3} activePage={40} withActions={true} classes={customStyles}/>
       <Pagination totalItems={1240} perPage={2} withActions={true} activePage={281}/>
+    
     </div>
-
-  );
+  )
 }
 
-export default App;
+export default Task2
