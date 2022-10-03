@@ -1,13 +1,12 @@
-import { Task1, Task2 } from './pages';
+import { BrowserRouter } from 'react-router-dom'
+import Router from './Router'
 
 function App() {
   return (
-    <div className="App">
-      <Task1 />
-      <Task2 />
-    </div>
-
-  );
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
