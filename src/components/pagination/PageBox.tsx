@@ -30,14 +30,12 @@ const PageBox: React.FC<PageBoxProps> = ({
   currentPage,
   onClick,
 }) => {
-  const pageBoxStyles = cn(
-    styles.btn,
-    currentPage === content && styles.activeBtn,
-    classes?.disableHover && styles.disableHover,
-    classes?.btn ?? styles.btnDefault,
-    currentPage === content && (classes?.activeBtn ?? styles.btnActiveDefault),
-    typeof content === 'string' && styles.stringBtn
-  )
+  const pageBoxStyles = cn(styles.btn, classes?.btn ?? styles.btnDefaultColors, {
+    [classes?.activeBtn ?? styles.btnActiveDefaultColors]: currentPage === content,
+
+    [styles.disableHover]: classes?.disableHover,
+    [styles.stringBtn]: typeof content === 'string',
+  })
 
   return (
     <li className={pageBoxStyles} onClick={onClick}>
