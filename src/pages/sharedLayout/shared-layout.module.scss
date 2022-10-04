@@ -1,1 +1,14 @@
 @import '../../utils/variables';
+
+.contentWrapper {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 3.5fr);
+}
+
+.content{
+    position: relative;
+    padding: 15px 20px;
+
+    // margin from footer
+    padding-bottom: calc(70px + 15px);
+}
