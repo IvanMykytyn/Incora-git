@@ -12,6 +12,7 @@ const customStyles = {
 const Task2 = () => {
   return (
     <div>
+      <h1>Task 2 - Pagination</h1>
       <Pagination totalItems={1} perPage={10} />
       <Pagination totalItems={24} activePage={2} perPage={10} />
       <Pagination totalItems={44} perPage={10} />
@@ -19,7 +20,7 @@ const Task2 = () => {
       <Pagination totalItems={120} activePage={18} perPage={3} />
       <Pagination totalItems={1240} activePage={499} perPage={2} />
 
-      <hr style={{marginTop: '15px'}}/>
+      <hr style={{marginTop: '20px'}}/>
 
       <Pagination totalItems={1} perPage={10} withActions={true} />
       <Pagination totalItems={24} perPage={10} withActions={true} classes={customStyles}/>

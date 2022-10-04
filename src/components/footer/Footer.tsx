@@ -1,12 +1,12 @@
 import React from 'react'
-import styles from './footer.module.scss'
+import './footer.styles.scss'
 import cn from 'classnames'
 
 const Footer = () => {
   return (
     <footer
       className={cn(
-        styles['footer-wrapper'],
+        'footer-wrapper',
         'd-flex flex-wrap justify-content-between align-items-center py-3 border-top'
       )}>
       <div className="col-md-4">

@@ -76,7 +76,7 @@ class Task implements ITask {
   }
 
   public getInfo(): string {
-    return `${this.id} ${this.title} ${
+    return `id: ${this.id} // title: ${this.title} // status: ${
       this.completed ? 'completed' : 'not completed'
     }`
   }

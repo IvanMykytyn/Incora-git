@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './header.styles.scss'
 interface HeaderProps {
   isAuthenticated: boolean
   setIsAuthenticated: (v: boolean) => void
@@ -7,7 +7,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ isAuthenticated, setIsAuthenticated }) => {
   return (
-    <header className="p-3 bg-light" style={{ maxHeight: '70px' }}>
+    <header className="header-wrapper p-3 bg-light">
       <div className="container">
         <div className="d-flex justify-content-between">
           <a
@@ -21,7 +21,7 @@ const Header: React.FC<HeaderProps> = ({ isAuthenticated, setIsAuthenticated }) 
               type="button"
               className="btn btn-outline-primary me-2"
               onClick={() => setIsAuthenticated(!isAuthenticated)}>
-              Login
+              Switch Access
             </button>
           </div>
         </div>

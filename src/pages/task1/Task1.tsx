@@ -43,11 +43,18 @@ const Task1 = () => {
   return (
     <div>
       <h1>Task1</h1>
-      <ul>
-        {project1
-          .getAllTasksByDeveloper(userIvan.id)
-          .map((task) => <li key={task.id}>{task.getInfo()}</li>)}
-      </ul>
+      <div>
+        <h6>{`Total Time project1: ${project1.getTotalTime()}`}</h6>
+        <h6>{`Total Time project2: ${project2.getTotalTime()}`}</h6>
+      </div>
+      <div>
+        <ul>
+          <li>all {userIvan.name}'s tasks</li>
+          {project1.getAllTasksByDeveloper(userIvan.id).map((task) => (
+            <li key={task.id}>{task.getInfo()}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   )
 }

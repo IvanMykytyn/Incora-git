@@ -1,43 +1,26 @@
 import React from 'react'
-import styles from './sidebar.module.scss'
+import './sidebar.styles.scss'
 import cn from 'classnames'
-import { NavLink } from 'react-router-dom'
+import NavLinkItem from '../navLinkItem/NavLinkItem'
 
 interface SideBarProps {
   isAuthenticated: boolean
 }
 
-const SideBar: React.FC<SideBarProps> = ({
-  isAuthenticated,
-}) => {
+const SideBar: React.FC<SideBarProps> = ({ isAuthenticated }) => {
+  const baseUrl = '/dashboard'
   return (
     <div
       className={cn(
-        styles['side-bar-wrapper'],
-        'd-flex flex-column flex-shrink-0 p-3 bg-light border-top'
+        'side-bar-wrapper',
+        'd-flex flex-column p-3 bg-light border-top'
       )}>
       <ul className="nav nav-pills flex-column mb-auto">
-        <li className="nav-item">
-          <NavLink to="/dashboard" className="nav-link link-dark" exact>
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/dashboard/task1" className="nav-link link-dark">
-            Task1
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/dashboard/test" className="nav-link link-dark">
-            Test
-          </NavLink>
-        </li>
+        <NavLinkItem base={baseUrl} linkText="Home" exact />
+        <NavLinkItem base={baseUrl} endpoint="task1" linkText="Task1" />
+        <NavLinkItem base={baseUrl} endpoint="test" linkText="Test" />
         {isAuthenticated && (
-          <li>
-            <NavLink to="/dashboard/task2" className="nav-link link-dark">
-              Task2
-            </NavLink>
-          </li>
+          <NavLinkItem base={baseUrl} endpoint="task2" linkText="Task2 (Private)" />
         )}
       </ul>
     </div>
