@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styles from './pagination.module.scss'
 import cn from 'classnames'
 
 // components
 import PageBox from './PageBox'
+import { usePagination } from '../../utils/customHooks/usePagination'
 
 interface PaginationProps {
   activePage?: number
@@ -23,31 +24,17 @@ const Pagination: React.FC<PaginationProps> = ({
   withActions = false,
   classes,
 }) => {
-  const [currentPage, setPage] = useState(activePage)
-
-  // max number of pages to show (from left and right sides)
-  const MAX_NUM_OF_PAGES = 1
-  const numOfPages = Math.ceil(totalItems / perPage)
-
-  const LEFT_LIMIT = currentPage - MAX_NUM_OF_PAGES
-  const RIGHT_LIMIT = currentPage + MAX_NUM_OF_PAGES
-
-  // set pages
-  // TODO optimize for a large number of pages
-  let pages = Array.from({ length: numOfPages }, (_, i) => i + 1)
-  pages = pages.filter((num) => {
-    return num <= RIGHT_LIMIT && num >= LEFT_LIMIT
-  })
-
-  const previousPage = () => {
-    if (currentPage === 1) return setPage(numOfPages)
-    setPage(currentPage - 1)
-  }
-
-  const nextPage = () => {
-    if (currentPage === numOfPages) return setPage(1)
-    setPage(currentPage + 1)
-  }
+  const maxNumOfPages = 2
+  const {
+    page,
+    setPage,
+    previousPage,
+    nextPage,
+    middlePageNumbers,
+    numOfPages,
+    LEFT_LIMIT,
+    RIGHT_LIMIT,
+  } = usePagination(activePage, totalItems, perPage, maxNumOfPages)
 
   if (totalItems < perPage) {
     return <></>
@@ -67,7 +54,7 @@ const Pagination: React.FC<PaginationProps> = ({
       {LEFT_LIMIT > 1 && (
         <>
           <PageBox
-            currentPage={currentPage}
+            currentPage={page}
             content={1}
             onClick={() => setPage(1)}
             classes={classes}
@@ -79,11 +66,11 @@ const Pagination: React.FC<PaginationProps> = ({
         </>
       )}
       {/* The current page and pages next to the current one */}
-      {pages.map((pageNumber) => {
+      {middlePageNumbers.map((pageNumber) => {
         return (
           <PageBox
             key={pageNumber}
-            currentPage={currentPage}
+            currentPage={page}
             content={pageNumber}
             onClick={() => setPage(pageNumber)}
             classes={classes}
@@ -98,7 +85,7 @@ const Pagination: React.FC<PaginationProps> = ({
             <PageBox content={'...'} classes={{ ...classes, disableHover: true }} />
           )}
           <PageBox
-            currentPage={currentPage}
+            currentPage={page}
             content={numOfPages}
             onClick={() => setPage(numOfPages)}
             classes={classes}
