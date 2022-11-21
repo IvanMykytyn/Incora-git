@@ -1,0 +1,6 @@
+@import '../../utils/variables';
+
+.side-bar-wrapper {
+  // minus sidebar height (70px)
+  min-height: calc(100vh - 70px);
+}
